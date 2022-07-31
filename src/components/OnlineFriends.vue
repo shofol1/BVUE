@@ -7,16 +7,9 @@
 <script>
 export default {
   name: "OnlineFriends",
+  props: ["friends"],
   data: function () {
-    return {
-      friends: [
-        { name: "A", online: true },
-        { name: "B", online: true },
-        { name: "C", online: false },
-        { name: "D", online: true },
-        { name: "E", online: false },
-      ],
-    };
+    return {};
   },
 };
 </script>

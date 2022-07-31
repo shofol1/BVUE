@@ -6,17 +6,32 @@ import OnlineFriendsVue from "./components/OnlineFriends.vue";
 export default {
   name: "App",
   data() {
-    return {};
+    return {
+      friends: [
+        { name: "A", online: true },
+        { name: "B", online: true },
+        { name: "C", online: false },
+        { name: "D", online: true },
+        { name: "E", online: false },
+      ],
+    };
   },
   components: {
     AllFriendsVue,
     NavbarVue,
     OnlineFriendsVue,
   },
+  methods: {
+    deleteFriend(payload) {
+      this.friends = this.friends.filter((friend) => {
+        return friend.name != payload.name;
+      });
+    },
+  },
 };
 </script>
 
 <template>
-  <AllFriendsVue></AllFriendsVue>
-  <OnlineFriendsVue></OnlineFriendsVue>
+  <AllFriendsVue :friends="friends" @delete="deleteFriend"></AllFriendsVue>
+  <OnlineFriendsVue :friends="friends"></OnlineFriendsVue>
 </template>
