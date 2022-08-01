@@ -1,5 +1,9 @@
 <template lang="">
-  <div>This is Profile page for: {{ user_id }}</div>
+  <div>
+    <h1>This is Profile page for: {{ user_id }}</h1>
+    <button @click="contact">Contact</button>
+    <button @click="home">Home</button>
+  </div>
 </template>
 <script>
 export default {
@@ -11,6 +15,12 @@ export default {
   methods: {
     updateId() {
       this.user_id = this.$route.params.id;
+    },
+    contact() {
+      this.$router.push({ name: "contact" });
+    },
+    home() {
+      this.$router.push({ name: "home" });
     },
   },
   watch: {

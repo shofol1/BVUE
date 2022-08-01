@@ -51,4 +51,7 @@ nav a {
 nav a:first-of-type {
   border: 0;
 }
+.router-link-active.router-link-exact-active {
+  color: red;
+}
 </style>
