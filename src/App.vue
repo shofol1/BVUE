@@ -7,16 +7,25 @@ export default {
   data() {
     return {
       users: [],
+      posts: [],
+      searchItem: "",
     };
   },
   created() {
     axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((res) => (this.users = res.data))
+      .get("https://jsonplaceholder.typicode.com/posts")
+      .then((res) => (this.posts = res.data))
       .catch((err) => console.log(err));
   },
   components: {
     HookVue,
+  },
+  computed: {
+    filtered() {
+      return this.posts.filter((post) => {
+        return post.title.match(this.searchItem);
+      });
+    },
   },
   methods: {},
 };
@@ -24,7 +33,10 @@ export default {
 
 <template>
   <HookVue></HookVue>
-  <ul v-for="(user, i) in users" :key="user.id">
-    <li>{{ user.name }}</li>
-  </ul>
+  <input type="text" placeholder="search" v-model="searchItem" />
+
+  <div v-for="(post, i) in filtered" :key="post.id">
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.body }}</p>
+  </div>
 </template>
