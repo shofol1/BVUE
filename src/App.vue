@@ -1,37 +1,18 @@
 <script>
-import AllFriendsVue from "./components/AllFriends.vue";
-import NavbarVue from "./components/Navbar.vue";
-import OnlineFriendsVue from "./components/OnlineFriends.vue";
+import HookVue from "./components/Hook.vue";
 
 export default {
   name: "App",
   data() {
-    return {
-      friends: [
-        { name: "A", online: true },
-        { name: "B", online: true },
-        { name: "C", online: false },
-        { name: "D", online: true },
-        { name: "E", online: false },
-      ],
-    };
+    return {};
   },
   components: {
-    AllFriendsVue,
-    NavbarVue,
-    OnlineFriendsVue,
+    HookVue,
   },
-  methods: {
-    deleteFriend(payload) {
-      this.friends = this.friends.filter((friend) => {
-        return friend.name != payload.name;
-      });
-    },
-  },
+  methods: {},
 };
 </script>
 
 <template>
-  <AllFriendsVue :friends="friends" @delete="deleteFriend"></AllFriendsVue>
-  <OnlineFriendsVue :friends="friends"></OnlineFriendsVue>
+  <HookVue></HookVue>
 </template>
