@@ -9,12 +9,6 @@ export default {
       users: [],
     };
   },
-  // beforeCreate() {
-  //   alert("before create");
-  // },
-  // created() {
-  //   alert("after create");
-  // },
   created() {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
